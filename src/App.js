@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 //importing components
 import Header from './components/Header'
 import Table from './components/Table'
@@ -22,11 +23,12 @@ function App() {
     fetchData()
   }, [])
 
-useEffect(() => console.log('users ', users))
-
+  useEffect(() => console.log('users ', users))
+  
   return (
     <div className="App">
       <Header />
+
       <Table 
         users={users}
       />

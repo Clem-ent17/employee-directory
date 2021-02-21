@@ -1,0 +1,59 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+export default function BasicTable({users}) {
+  const classes = useStyles();
+
+  //function to format the date of birth
+  const formatDate = (date) => {
+    const dateArray = date.split("-");
+    const year = dateArray[0];
+    const month = dateArray[1];
+    const dayArray = dateArray[2].split("T");
+    const day = dayArray[0];
+    const formattedDate = [month, day, year].join("-");
+    return formattedDate;
+  }
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell><h3>Photography</h3></TableCell>
+            <TableCell align="right"><h3>Title</h3></TableCell>
+            <TableCell align="right"><h3>Name</h3></TableCell>
+            <TableCell align="right"><h3>Date of Birth</h3></TableCell>
+            <TableCell align="right"><h3>Email</h3></TableCell>
+            <TableCell align="right"><h3>Phone</h3></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {users.map((user, index) => (
+            <TableRow key={user.login.uuid}>
+              <TableCell component="th" scope="row"><img src={user.picture.thumbnail} alt={user.name.title}/></TableCell>
+              <TableCell align="right">{user.name.title}</TableCell>
+              <TableCell align="right">{user.name.first} {user.name.last}</TableCell>
+              <TableCell align="right">{formatDate(user.registered.date)}</TableCell>
+              <TableCell align="right"><a href={"mailto:" + user.email}>{user.email}</a></TableCell>
+              <TableCell align="right">{user.cell}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
