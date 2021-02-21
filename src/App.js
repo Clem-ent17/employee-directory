@@ -27,7 +27,9 @@ useEffect(() => console.log('users ', users))
   return (
     <div className="App">
       <Header />
-      <Table />
+      <Table 
+        users={users}
+      />
     </div>
   );
 }
