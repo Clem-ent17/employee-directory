@@ -1,9 +1,12 @@
-export default function SearchBox({ handleSearchChange }) {
+//Import syle sheet
+import '../App.css';
+
+export default function Search({ handleSearchChange }) {
   return (
-    <div >
+    <div>
       <form >
         <input
-          className="form-control"
+          className="Search"
           type="search"
           placeholder="Search"
           aria-label="Search"

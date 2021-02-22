@@ -45,11 +45,11 @@ export default function BasicTable({users}) {
           {users.map((user, index) => (
             <TableRow key={user.login.uuid}>
               <TableCell component="th" scope="row"><img src={user.picture.thumbnail} alt={user.name.title}/></TableCell>
-              <TableCell align="right">{user.name.title}</TableCell>
-              <TableCell align="right">{user.name.first} {user.name.last}</TableCell>
-              <TableCell align="right">{formatDate(user.registered.date)}</TableCell>
-              <TableCell align="right"><a href={"mailto:" + user.email}>{user.email}</a></TableCell>
-              <TableCell align="right">{user.cell}</TableCell>
+              <TableCell align="right"><p>{user.name.title}</p></TableCell>
+              <TableCell align="right"><p>{user.name.first} {user.name.last}</p></TableCell>
+              <TableCell align="right"><p>{formatDate(user.registered.date)}</p></TableCell>
+              <TableCell align="right"><p><a href={"mailto:" + user.email}>{user.email}</a></p></TableCell>
+              <TableCell align="right"><p>{user.cell}</p></TableCell>
             </TableRow>
           ))}
         </TableBody>
