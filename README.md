@@ -8,8 +8,8 @@ Employee Directory
 GitHub repository: 
 https://github.com/Clem-ent17/employee-directory
 
-Heroku live URL:
-https://blooming-hollows-28066.herokuapp.com/
+Live link:
+https://clem-ent17.github.io/employee-directory/
 
 
 ## User Story
